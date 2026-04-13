@@ -49,17 +49,17 @@ Sistem üç katmanlı (3-Tier) bir yapıda kurgulanmıştır:
 Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
 
 1. Repoyu bilgisayarınıza klonlayın:
-   \`\`\`bash
+   ```bash
    git clone https://github.com/azratashan/akilli-bilgisayar-oneri-sistemi.git
-   \`\`\`
+   ```
 2. Gerekli kütüphaneleri yükleyin:
-   \`\`\`bash
+   ```bash
    pip install -r requirements.txt
-   \`\`\`
+   ```
 3. Uygulamayı (Prototip) başlatın: 
-   \`\`\`bash
+   ```bash
    streamlit run app.py
-   \`\`\`
+   ```
 
   
 ## 👥 Proje Ekibi

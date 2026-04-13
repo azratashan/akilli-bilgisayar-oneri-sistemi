@@ -32,7 +32,7 @@ Sistem, doğruluğu ve hızı kanıtlanmış şu yöntemleri temel almaktadır:
   
 * Min-Max Normalizasyon: Farklı birimlerdeki verileri $[0, 1]$ aralığına ölçeklendirerek (feature scaling) modelin tarafsız değerlendirme yapmasını sağlar.
   
-  $$x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+    $$x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
   
 * Sert Filtreleme (Hard Constraint): İşletim sistemi tercihi ve bütçe aralığı için sisteme kurallar atanarak veri setinin kural tabanlı olarak optimize edilmesini sağlar.
 
@@ -56,7 +56,7 @@ Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları i
    \`\`\`bash
    pip install -r requirements.txt
    \`\`\`
-4. Uygulamayı (Prototip) başlatın: 
+3. Uygulamayı (Prototip) başlatın: 
    \`\`\`bash
    streamlit run app.py
    \`\`\`

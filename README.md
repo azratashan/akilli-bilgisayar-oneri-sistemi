@@ -4,7 +4,7 @@ Bu proje, Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği Bölümü **Pyth
 
 Standart e-ticaret sitelerindeki teknik filtrelemelerin aksine, bu sistem kullanıcının doğrudan kullanım amacına ve bütçesine odaklanarak en uygun cihazı **K-Nearest Neighbors (KNN)** makine öğrenmesi algoritması ile bulur.
 
-##🛠️ Prototip ve Başlangıç Kodu Hakkında Not
+## 🛠️ Prototip ve Başlangıç Kodu Hakkında Not
 
 Bu depoda (repository) yer alan kaynak kodlar ve veri seti, projenin çalışan ilk prototipini (initial working prototype) temsil etmektedir. Projenin genel vizyonu ile bu teknik teslimat arasındaki ilişki şu şekildedir:
 
@@ -27,9 +27,13 @@ Bu depoda (repository) yer alan kaynak kodlar ve veri seti, projenin çalışan 
 
 Sistem, doğruluğu ve hızı kanıtlanmış şu yöntemleri temel almaktadır:
 * K-Nearest Neighbors (KNN): Sistemin çekirdeğini oluşturan makine öğrenmesi modelidir; hedef koordinatlara Öklid mesafesi ile en yakın cihazları tespit eder.
+  
                     $$d(p, q) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}$$
+  
 * Min-Max Normalizasyon: Farklı birimlerdeki verileri $[0, 1]$ aralığına ölçeklendirerek (feature scaling) modelin tarafsız değerlendirme yapmasını sağlar.
+  
                      $$x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+  
 * Sert Filtreleme (Hard Constraint): İşletim sistemi tercihi ve bütçe aralığı için sisteme kurallar atanarak veri setinin kural tabanlı olarak optimize edilmesini sağlar.
 
 ## 🏗️ Program Mimarisi

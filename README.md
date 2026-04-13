@@ -2,7 +2,7 @@
 
 Bu proje, Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği Bölümü **Python Programlamaya Giriş** dersi kapsamında geliştirilmiş, İçerik Tabanlı (Content-Based) bir akıllı bilgisayar öneri motorudur. 
 
-Standart e-ticaret sitelerindeki teknik filtrelemelerin ("Sadece 16GB RAM göster") aksine, bu sistem kullanıcının doğrudan kullanım amacına (Yazılım, Oyun, Ofis) ve bütçesine odaklanarak en uygun cihazı **K-Nearest Neighbors (KNN)** makine öğrenmesi algoritması ile bulur.
+Standart e-ticaret sitelerindeki teknik filtrelemelerin aksine, bu sistem kullanıcının doğrudan kullanım amacına (Yazılım, Oyun, Ofis) ve bütçesine odaklanarak en uygun cihazı **K-Nearest Neighbors (KNN)** makine öğrenmesi algoritması ile bulur.
 
 ## 🚀 Projenin Amacı ve Özellikleri
 

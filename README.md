@@ -1,6 +1,6 @@
 # 💻 Makine Öğrenmesi Tabanlı Akıllı Bilgisayar Öneren Web Sistemi
 
-Bu proje, Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği Bölümü **Python Programlamaya Giriş** dersi kapsamında geliştirilmiş, İçerik Tabanlı (Content-Based) bir akıllı bilgisayar öneri motorudur. 
+Bu proje, Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği Bölümü **Python Programlamaya Giriş** dersi kapsamında geliştirilmiş, **İçerik Tabanlı (Content-Based)** bir akıllı bilgisayar öneri motorudur. 
 
 Standart e-ticaret sitelerindeki teknik filtrelemelerin aksine, bu sistem kullanıcının doğrudan kullanım amacına ve bütçesine odaklanarak en uygun cihazı **K-Nearest Neighbors (KNN)** makine öğrenmesi algoritması ile bulur.
 
@@ -8,9 +8,9 @@ Standart e-ticaret sitelerindeki teknik filtrelemelerin aksine, bu sistem kullan
 
 Bu depoda (repository) yer alan kaynak kodlar ve veri seti, projenin çalışan ilk prototipini (initial working prototype) temsil etmektedir. Projenin genel vizyonu ile bu teknik teslimat arasındaki ilişki şu şekildedir:
 
-* **Algoritma Doğrulaması:** Paylaşılan **app.py** dosyası, sistemin çekirdeğini oluşturan KNN algoritmasının ve normalizasyon süreçlerinin doğru çalıştığını kanıtlamak amacıyla hazırlanmış "başlangıç kodu"dur.
+* **Algoritma Doğrulaması:** Paylaşılan "**app.py**" dosyası, sistemin çekirdeğini oluşturan KNN algoritmasının ve normalizasyon süreçlerinin doğru çalıştığını kanıtlamak amacıyla hazırlanmış "başlangıç kodu"dur.
 
-* **Temsili Veri Seti:** Mevcut **veri_seti.csv** dosyası, sistemin mantıksal akışını test etmek için oluşturulmuş, gerçek değerlerden bağımsız küçük ölçekli bir numune veri setidir. Ana proje sürecinde bu veri seti, geniş kapsamlı ve gerçek zamanlı verilerle genişletilecektir.
+* **Temsili Veri Seti:** Mevcut "**veri_seti.csv**" dosyası, sistemin mantıksal akışını test etmek için oluşturulmuş, gerçek değerlerden bağımsız küçük ölçekli bir numune veri setidir. Ana proje sürecinde bu veri seti, geniş kapsamlı ve gerçek zamanlı verilerle genişletilecektir.
 
 * **Mimari Temel:** Bu sürüm, projenin ilerleyen aşamalarında üzerine inşa edilecek olan kullanıcı arayüzü ve makine öğrenmesi katmanlarının temel iskeletini oluşturmaktadır.
 
@@ -39,9 +39,9 @@ Sistem, doğruluğu ve hızı kanıtlanmış şu yöntemleri temel almaktadır:
 ## 🏗️ Program Mimarisi
 
 Sistem üç katmanlı (3-Tier) bir yapıda kurgulanmıştır:
-* **Veri Katmanı:** **Pandas** kullanılarak yönetilen cihaz özellikleri veri seti.
-* **Mantık Katmanı (ML):** **Scikit-Learn** üzerinden çalışan makine öğrenmesi motoru.
-* **Sunum Katmanı:** Streamlit web framework'ü ile geliştirilmiş dinamik kullanıcı arayüzü.
+* **Veri Katmanı:** "**Pandas**" kullanılarak yönetilen cihaz özellikleri veri seti.
+* **Mantık Katmanı (ML):** "**Scikit-Learn**" üzerinden çalışan makine öğrenmesi motoru.
+* **Sunum Katmanı:** "**Streamlit**" web framework'ü ile geliştirilmiş dinamik kullanıcı arayüzü.
 
   
 ## ⚙️ Kurulum ve Çalıştırma

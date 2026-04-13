@@ -1,0 +1,51 @@
+Model,CPU_Skor,GPU_Skor,RAM_GB,Agirlik_Kg,Fiyat,OS
+MacBook Pro M3 Max,98,92,64,2.1,145000,macOS
+Dell Precision 5680,96,85,32,2.0,95000,Windows
+Lenovo ThinkPad Z16,92,75,32,1.8,78000,Windows
+HP ZBook Power G10,90,80,64,2.0,82000,Windows
+Asus Zenbook Pro 14,94,88,32,1.6,68000,Windows
+MacBook Pro M2 Pro,92,85,16,1.6,65000,macOS
+Dell XPS 15 9530,93,80,32,1.9,88000,Windows
+Framework Laptop 16,91,70,32,2.1,72000,Windows
+System76 Oryx Pro,95,85,64,2.4,85000,Windows
+Razer Blade 15 Studio,94,90,32,2.0,110000,Windows
+MSI Raider GE78 HX,98,99,64,3.1,155000,Windows
+Asus ROG Strix Scar 18,97,98,32,3.0,135000,Windows
+Alienware m18 R1,96,97,32,4.0,125000,Windows
+Razer Blade 18,96,96,32,3.1,140000,Windows
+Lenovo Legion Pro 7i,95,95,32,2.8,85000,Windows
+Acer Predator Helios 16,92,92,16,2.7,72000,Windows
+HP Omen 17,90,90,32,2.9,68000,Windows
+Gigabyte Aorus 17X,94,95,32,2.8,92000,Windows
+Asus TUF Gaming F15,85,82,16,2.2,38000,Windows
+MSI Stealth 16 Studio,92,88,32,1.9,78000,Windows
+MacBook Pro 16 M3 Pro,95,88,36,2.1,110000,macOS
+ASUS ProArt Studiobook 16,96,94,64,2.4,98000,Windows
+Microsoft Surface Laptop Studio 2,92,85,32,2.0,105000,Windows
+HP Envy 16,88,82,32,2.3,58000,Windows
+Gigabyte Aero 16 OLED,90,88,16,1.9,75000,Windows
+MacBook Pro 14 M3,90,80,16,1.5,78000,macOS
+Samsung Galaxy Book3 Ultra,92,85,32,1.8,88000,Windows
+MSI Creator Z17 HX,94,92,64,2.5,95000,Windows
+Lenovo Yoga Pro 9i,93,88,32,2.2,70000,Windows
+Asus Vivobook Pro 16X,90,85,32,1.9,62000,Windows
+MacBook Air M3 13,88,60,16,1.2,52000,macOS
+Dell Latitude 7440,85,45,16,1.3,58000,Windows
+Lenovo ThinkPad X1 Carbon G11,86,40,32,1.1,72000,Windows
+HP EliteBook 840 G10,84,42,16,1.4,55000,Windows
+Microsoft Surface Laptop 5,82,40,8,1.3,45000,Windows
+ASUS ExpertBook B9,83,35,16,0.9,62000,Windows
+LG Gram 17 (2023),85,45,16,1.3,58000,Windows
+Samsung Galaxy Book3 Pro,86,48,16,1.2,52000,Windows
+Acer Swift Edge 16,84,55,16,1.2,48000,Windows
+Dynabook Portégé X30L-K,82,35,16,0.9,54000,Windows
+MacBook Air M1,80,50,8,1.3,32000,macOS
+Acer Swift Go 14,82,45,16,1.3,25000,Windows
+HP Pavilion Plus 14,80,42,16,1.4,28000,Windows
+Asus Vivobook 15,75,35,8,1.7,18000,Windows
+Dell Inspiron 14,78,38,16,1.5,24000,Windows
+Lenovo IdeaPad Slim 5,76,40,16,1.5,22000,Windows
+MSI Modern 14,74,32,8,1.4,19500,Windows
+Acer Aspire 5,72,30,8,1.8,17000,Windows
+Huawei MateBook D14,75,35,8,1.4,21000,Windows
+Surface Laptop Go 3,70,30,8,1.1,35000,Windows

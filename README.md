@@ -12,9 +12,9 @@ Standart e-ticaret siteleri kullanıcıya yalnızca "kural tabanlı" (bütçe, m
 Sistem, donanımları tarafsız ve bilimsel bir şekilde değerlendirmek için şu modellemeleri kullanır:
 
 1. **Özellik Ölçeklendirme (`sklearn.preprocessing.MinMaxScaler`):**
-   Farklı birimlerdeki verilerin (Örn: 32GB RAM ile 7500 MB/s SSD hızı) uzaklık metriklerini bozmasını engellemek için tüm sayısal veriler $[0, 1]$ aralığına normalize edilmiştir.
+   Farklı birimlerdeki verilerin (Örn: 32GB RAM ile 7500 MB/s SSD hızı) uzaklık metriklerini bozmasını engellemek için tüm sayısal veriler $0$ ile $1$ aralığına normalize edilmiştir.
 2. **Pazar Segmentasyonu (`sklearn.cluster.KMeans`):**
-   Veri setindeki bilgisayarların özelliklerine göre (Fiyat, Performans) otomatik olarak "Giriş Seviyesi, Fiyat/Performans, Premium" şeklinde kümelenmesi sağlanmıştır.
+   Veri setindeki bilgisayarların donanım özelliklerine (CPU, GPU, RAM vb.) göre otomatik olarak "Giriş Seviyesi, Orta Segment ve Üst Segment" şeklinde kümelenmesi sağlanmıştır. Arayüzdeki "Performans Sınıfı" seçimi bu algoritmanın çıktılarıyla çalışır.
 3. **Öneri Motoru (`sklearn.neighbors.NearestNeighbors`):**
    Kullanıcının ideal vektörüne en yakın cihazları bulmak için K-En Yakın Komşu (KNN) algoritması kullanılmıştır. İki donanım vektörü (hedef $p$ ve cihaz $q$) arasındaki benzerlik, Öklid (Euclidean) mesafesi denklemiyle hesaplanmaktadır: 
    $d(p, q) = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}$
@@ -80,5 +80,3 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
-
-

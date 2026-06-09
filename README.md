@@ -36,7 +36,7 @@ Proje "Separation of Concerns" (Sorumlulukların Ayrılması) prensibine göre k
 
 | İsim Soyisim | Üstlenilen Sorumluluklar | İlgili Dosyalar |
 | :--- | :--- | :--- |
-| **Azra Taşhan** | Güncel piyasa donanımlarını simüle eden sentetik veri setinin algoritmik üretimi, özellik mühendisliği süreçleri, modellerin performans/sağlama testleri ve versiyon kontrol (Git/GitHub) yöneticiliği. | `src/create_data.py`, `src/evaluation.py`, `data/laptop_dataset_2025_2026_2.csv` |
+| **Azra Taşhan** | Güncel piyasa donanımlarını simüle eden sentetik veri setinin algoritmik üretimi, özellik mühendisliği süreçleri, modellerin performans/sağlama testleri ve versiyon kontrol (Git/GitHub) yöneticiliği. | `src/create_data.py`, `src/evaluation.py`, `data/laptop_dataset_2025_2026.csv` |
 | **Kerem Bilgiç** | Makine öğrenmesi (ML) mimarisinin kurulması, K-Means ve KNN algoritmalarının matematiksel modellenmesi, model eğitimi ve öneri motoru fonksiyonlarının geliştirilmesi. | `src/ml_pipeline.py` |
 | **Ayşegül Karataş** | Streamlit altyapısı ile etkileşimli web arayüzü (UI) tasarımı, kullanıcı deneyimi (UX) süreçleri, Plotly veri görselleştirmeleri (Radar/Scatter) ve sistemin uçtan uca senaryo testleri. | `app.py` |
 
@@ -57,7 +57,7 @@ Projenin arka planında yüksek performanslı veri işleme ve arayüz yönetimi 
 
 Bu projede geleneksel bir ilişkisel veritabanı (SQL vb.) kullanılmamaktadır. Veriler statik bir veri kümesinden (CSV) okunarak işlenmektedir.
 
-* **Veri Seti Linki:** Projede kullanılan ve güncel donanım özelliklerini içeren sentetik veri setine doğrudan bu bağlantıdan ulaşabilirsiniz: [laptop_dataset_2025_2026_2.csv](./data/laptop_dataset_2025_2026_2.csv)
+* **Veri Seti Linki:** Projede kullanılan ve güncel donanım özelliklerini içeren sentetik veri setine doğrudan bu bağlantıdan ulaşabilirsiniz: [laptop_dataset_2025_2026.csv](./data/laptop_dataset_2025_2026.csv)
 
 ---
 

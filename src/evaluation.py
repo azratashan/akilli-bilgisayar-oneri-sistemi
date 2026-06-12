@@ -1,7 +1,5 @@
 """
-evaluation.py - Model Evaluation Metrics for the Laptop Recommendation System
-
-Provides clustering quality metrics and Elbow/Silhouette analysis.
+evaluation.py - Akıllı Bilgisayar Öneri Sistemi İçin Model Değerlendirme Metrikleri
 
 Bu modül; makine öğrenmesi modelimizin (K-Means) kümeleme kalitesini 
 ölçmek, en uygun küme sayısını belirlemek (Elbow/Dirsek Yöntemi) ve 
@@ -137,3 +135,68 @@ def evaluate_pipeline(df: pd.DataFrame, km_model: KMeans, km_scaler: MinMaxScale
 
     # Çıktıları arayüzde (Streamlit) veya analiz raporlarında kullanılmak üzere topluca döndürüyoruz.
     return {"elbow_data": elbow, "current_metrics": metrics}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. HOCANIN İSTEDİĞİ AKADEMİK TEST (TRAIN/TEST SPLIT) RAPORU
+# ─────────────────────────────────────────────────────────────────────────────
+from sklearn.model_selection import train_test_split
+
+def akademik_test_raporu_olustur():
+    """
+    Hocanın istediği %80 Train - %20 Test mantığını canlı sistemi bozmadan
+    sadece bu dosya içinde test edip konsola (ekrana) yazdıran fonksiyondur.
+    """
+    import pandas as pd
+    from ml_pipeline import engineer_features, normalize_features, cluster_performance
+    
+    print("\n" + "="*50)
+    print("--- HOCANIN İSTEDİĞİ TRAIN/TEST DEĞERLENDİRME RAPORU ---")
+    print("="*50)
+    
+    # 1. Çiftçiden gelen veriyi oku ve temizle
+    # (Eğer CSV dosyanızın yolu farklıysa buradaki "data/..." kısmını düzeltmelisiniz)
+    try:
+        df = pd.read_csv("../data/laptop_dataset_2025_2026.csv")
+    except FileNotFoundError:
+        try:
+            df = pd.read_csv("data/laptop_dataset_2025_2026.csv")
+        except FileNotFoundError:
+            print("HATA: CSV dosyası bulunamadı. Lütfen dosya yolunu kontrol edin.")
+            return
+
+    df = engineer_features(df)
+    df = normalize_features(df)
+    
+    # 2. Veriyi %80 Eğitim (Train) ve %20 Test olarak ikiye bölüyoruz
+    train_df, test_df = train_test_split(df, test_size=0.20, random_state=42)
+    
+    print(f"Toplam Analiz Edilen Veri: {len(df)}")
+    print(f"Modelin Öğrendiği Eğitim (Train) Verisi: {len(train_df)}")
+    print(f"Modelin Test Edildiği Gizli Veri: {len(test_df)}\n")
+    
+    # 3. Modeli SADECE %80'lik eğitim verisiyle kuruyoruz (Aşçı yemeği öğreniyor)
+    train_df, km_model, scaler = cluster_performance(train_df)
+    
+    # 4. Eğitilmiş bu modeli, SAKLADIĞIMIZ %20'lik test verisi üzerinde sınıyoruz
+    # ml_pipeline dosyanızdaki sütunlara göre (Total_Raw_Power ve Verimlilik)
+    X_test = test_df[["Total_Raw_Power", "Verimlilik"]].values
+    X_test_scaled = scaler.transform(X_test)
+    
+    # Test verilerini tahmin et
+    test_labels = km_model.predict(X_test_scaled)
+    
+    # 5. Sınav Sonuçları (Silhouette Skoru)
+    if len(set(test_labels)) > 1:
+        score = silhouette_score(X_test_scaled, test_labels)
+        print(f"Modelin Hiç Görmediği Test Verisindeki Başarısı (Silhouette Score): {score:.4f}")
+        if score > 0.50:
+            print("Sonuç: MÜKEMMEL! Model ezberlememiş, yeni verileri başarıyla ayırabiliyor.")
+        else:
+            print("Sonuç: KABUL EDİLEBİLİR. Model yeni verileri ayırabiliyor.")
+    else:
+        print("Test verisi skor hesaplamak için çok küçük veya tek küme oluştu.")
+    print("="*50 + "\n")
+
+# Eğer bu dosya doğrudan çalıştırılırsa testi başlat:
+if __name__ == "__main__":
+    akademik_test_raporu_olustur()

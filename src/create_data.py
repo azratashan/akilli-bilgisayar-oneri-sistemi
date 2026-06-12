@@ -1,12 +1,13 @@
 """
-create_data.py — Static Laptop Dataset Generator (Uzman Sistem Versiyonu)
+create_data.py - Statik Dizüstü Bilgisayar Veri Seti Üreticisi (Uzman Sistem Versiyonu)
 
-Bu modül, kural tabanlı uzman laptop öneri sistemi için
-statik bir veri kümesi oluşturur ve CSV dosyasına kaydeder.
-RTX 5000 serisi ve Apple M4/M5 cihazları odaklıdır.
+Bu modül, kural tabanlı uzman bilgisayar öneri sistemi için
+sentetik ve tutarlı bir veri kümesi oluşturur ve CSV formatında dışa aktarır.
+Veri seti, güncel RTX 5000 serisi ve Apple M4/M5 donanımları odaklıdır.
 
-Modülün temel amacı: Öneri motoru ve grafikler için arka planda 
-kullanılacak gerçekçi ve tutarlı dizüstü bilgisayar verilerini (sentetik olarak) üretmektir.
+Modülün temel amacı: Öneri motoru ve görselleştirme katmanları için
+arka planda kullanılacak gerçekçi, tutarlı ve ölçeklenebilir verileri
+sentetik olarak üretmektir.
 """
 
 # ─────────────────────────────────────────────────────────────────────────────

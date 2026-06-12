@@ -2,43 +2,54 @@
 
 Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği Bölümü, **Python Programlamaya Giriş** dersi kapsamında geliştirilmiş; makine öğrenmesi tabanlı, içerik duyarlı (content-based) ve etkileşimli bir karar destek sistemidir.
 
-## 📌 Proje Özeti ve Motivasyon
-Standart e-ticaret siteleri kullanıcıya yalnızca "kural tabanlı" (bütçe, marka vb.) filtreleme sunar ve donanımların kullanım senaryosuna uygunluğunu analiz edemez. Bu projenin temel motivasyonu; kullanıcının mesleki ve kişisel amaçlarını (Oyun, Veri Bilimi, Yazılım, Ofis vb.) matematiksel vektörlere dönüştürerek **İçerik Tabanlı Filtreleme (Content-Based Filtering)** yapmaktır. Sistem, pazar donanımlarını analiz eder ve kullanıcı profiline en uygun cihazları yapay zeka algoritmaları ile bularak şeffaf bir "Uygunluk Skoru" eşliğinde sunar.
+## 🎥 Proje Demo Videosu
+Projenin lokal ortamda nasıl kurulduğunu, çalıştırıldığını ve arayüzün kullanımını gösteren kısa ekran kaydına buradan ulaşabilirsiniz: 
+👉 [YouTube Demo Videosu Linki Buraya Gelecek]
 
 ---
 
-## 🧠 Makine Öğrenmesi Algoritmaları ve Matematiksel Temeller
+## 📌 Proje Özeti ve Motivasyon
+Standart e-ticaret siteleri kullanıcıya yalnızca "kural tabanlı" (bütçe, marka vb.) filtreleme sunar ve donanımların kullanım senaryosuna uygunluğunu analiz edemez. Bu projenin temel motivasyonu; kullanıcının mesleki ve kişisel amaçlarını (Oyun, Veri Bilimi, Yazılım, Ofis vb.) matematiksel ağırlıklara dönüştürerek **İçerik Tabanlı Filtreleme (Content-Based Filtering)** yapmaktır. Sistem, pazar donanımlarını analiz eder ve kullanıcı profiline en uygun cihazları yapay zeka ve uzman sistem algoritmaları ile bularak şeffaf bir "Uygunluk Skoru" eşliğinde sunar.
+
+---
+
+## 🧠 Makine Öğrenmesi Algoritmaları ve İşlem Motoru
 
 Sistem, donanımları tarafsız ve bilimsel bir şekilde değerlendirmek için şu modellemeleri kullanır:
 
 1. **Özellik Ölçeklendirme (`sklearn.preprocessing.MinMaxScaler`):**
-   Farklı birimlerdeki verilerin (Örn: 32GB RAM ile 7500 MB/s SSD hızı) uzaklık metriklerini bozmasını engellemek için tüm sayısal veriler $0$ ile $1$ aralığına normalize edilmiştir.
+   Farklı birimlerdeki verilerin (Örn: 32GB RAM ile 7500 MB/s SSD hızı) uzaklık metriklerini bozmasını engellemek için tüm sayısal veriler 0 ile 1 aralığına normalize edilmiştir.
 2. **Pazar Segmentasyonu (`sklearn.cluster.KMeans`):**
-   Veri setindeki bilgisayarların donanım özelliklerine (CPU, GPU, RAM vb.) göre otomatik olarak "Giriş Seviyesi, Orta Segment ve Üst Segment" şeklinde kümelenmesi sağlanmıştır. Arayüzdeki "Performans Sınıfı" seçimi bu algoritmanın çıktılarıyla çalışır.
-3. **Öneri Motoru (`sklearn.neighbors.NearestNeighbors`):**
-   Kullanıcının ideal vektörüne en yakın cihazları bulmak için K-En Yakın Komşu (KNN) algoritması kullanılmıştır. İki donanım vektörü (hedef $p$ ve cihaz $q$) arasındaki benzerlik, Öklid (Euclidean) mesafesi denklemiyle hesaplanmaktadır: 
-   $d(p, q) = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}$
+   Veri setindeki bilgisayarların donanım özelliklerine (CPU, GPU, RAM vb.) ve enerji verimliliklerine göre otomatik olarak "Giriş Seviyesi, Orta Segment ve Üst Segment" şeklinde kümelenmesi sağlanmıştır. Arayüzdeki "Performans Sınıfı" seçimi bu algoritmanın çıktılarıyla çalışır.
+3. **Kural Tabanlı Uzman Sistem (Expert System):**
+   Kullanıcının seçtiği kullanım senaryosuna (Veri Bilimi, Oyun, Ofis vb.) göre donanım bileşenlerine dinamik ağırlıklar atayan kural tabanlı bir karar motoru kullanılmıştır. Cihazların nihai uygunluk skoru; GPU, CPU, RAM ve Portability (Taşınabilirlik) gibi normalize edilmiş değerlerin sektörel katsayılarla çarpılıp toplanmasıyla hesaplanmaktadır. Ayrıca spesifik Apple ve Windows kasa mimarileri için azalan verim (diminishing returns) metrikleri de algoritmaya dahil edilmiştir.
 
 ---
 
-## 📂 Modüler Dosya Mimarisi ve Fonksiyon Detayları
+## 📂 Klasör Yapısı ve Modüler Dosya Mimarisi
 
-Proje "Separation of Concerns" (Sorumlulukların Ayrılması) prensibine göre katmanlara ayrılmış ve düzenli bir klasör yapısında toplanmıştır:
+Proje "Separation of Concerns" (Sorumlulukların Ayrılması) prensibine göre katmanlara ayrılmıştır:
 
-* **`src/create_data.py` (Veri Üretim Katmanı):** Güncel pazar dinamiklerini içeren sentetik donanım verilerinin algoritmik olarak üretildiği modüldür.
-* **`src/ml_pipeline.py` (Algoritma Katmanı):** Sistemin matematiksel karar mekanizmasıdır. Veri ön işleme, K-Means eğitimi ve KNN öneri fonksiyonlarını barındırır.
-* **`src/evaluation.py` (Değerlendirme Katmanı):** Makine öğrenmesi modellerinin sağlama ve doğruluk testlerinin (Silhouette Skoru vb.) yapıldığı kalite kontrol modülüdür.
-* **`app.py` (Sunum Katmanı):** Kullanıcı deneyiminin (UX) sağlandığı ve verilerin Streamlit & Plotly ile görselleştirildiği ana arayüz dosyasıdır.
+```text
+akilli-bilgisayar-oneri-sistemi/
+├── data/
+│   └── laptop_dataset_2025_2026.csv   # Sentetik donanım veri seti (Örnek Veriler)
+├── src/
+│   ├── create_data.py                 # Veri üretim algoritması
+│   ├── evaluation.py                  # Model doğrulama ve test metrikleri
+│   └── ml_pipeline.py                 # Veri işleme, K-Means ve Uzman Sistem motoru
+├── app.py                             # Streamlit web arayüzü ana çalışma dosyası
+├── requirements.txt                   # Proje bağımlılıkları ve kütüphane sürümleri
+└── README.md                          # Proje kurulum ve mimari dokümantasyonu
+```
 
 ---
 
-## 👥 Ekip Üyeleri ve Görev Dağılımı
+## 💻 Donanım ve Yazılım Gereksinimleri
 
-| İsim Soyisim | Üstlenilen Sorumluluklar | İlgili Dosyalar |
-| :--- | :--- | :--- |
-| **Azra Taşhan** | Güncel piyasa donanımlarını simüle eden sentetik veri setinin algoritmik üretimi, özellik mühendisliği süreçleri, modellerin performans/sağlama testleri ve versiyon kontrol (Git/GitHub) yöneticiliği. | `src/create_data.py`, `src/evaluation.py`, `data/laptop_dataset_2025_2026.csv` |
-| **Kerem Bilgiç** | Makine öğrenmesi (ML) mimarisinin kurulması, K-Means ve KNN algoritmalarının matematiksel modellenmesi, model eğitimi ve öneri motoru fonksiyonlarının geliştirilmesi. | `src/ml_pipeline.py` |
-| **Ayşegül Karataş** | Streamlit altyapısı ile etkileşimli web arayüzü (UI) tasarımı, kullanıcı deneyimi (UX) süreçleri, Plotly veri görselleştirmeleri (Radar/Scatter) ve sistemin uçtan uca senaryo testleri. | `app.py` |
+* **İşletim Sistemi:** Windows 10/11, macOS veya Linux tabanlı herhangi bir OS.
+* **Yazılım:** Python 3.9 veya daha güncel bir sürüm.
+* **Donanım:** Uygulama tarayıcı üzerinde çalıştığı için minimum 4 GB RAM ve standart bir işlemci yeterlidir. Model eğitimi hafif olduğu için ekstra donanımsal grafik işlemci (GPU) zorunluluğu yoktur.
 
 ---
 
@@ -46,24 +57,28 @@ Proje "Separation of Concerns" (Sorumlulukların Ayrılması) prensibine göre k
 
 Projenin arka planında yüksek performanslı veri işleme ve arayüz yönetimi için şu kütüphaneler kullanılmıştır:
 
-* **`pandas` & `numpy`:** Veri setinin okunması, veri manipülasyonu, özellik mühendisliği ve vektörel uzaklık hesaplamaları için.
-* **`scikit-learn`:** Cihazları segmentlere ayırmak için K-Means ve kullanıcı tercihine en yakın cihazları bulmak için K-En Yakın Komşu (KNN) algoritmalarının çalıştırılması için.
-* **`streamlit`:** Makine öğrenmesi modelinin interaktif bir web arayüzüne (UI) dönüştürülmesi için.
-* **`plotly`:** Veri setindeki cihazların dağılımlarının ve önerilen cihazların radar grafiklerinin çizdirilmesi için.
+* **`pandas (>=2.0)` & `numpy (>=1.24)`:** Veri setinin okunması, veri manipülasyonu, özellik mühendisliği ve vektörel hesaplamalar için.
+* **`scikit-learn (>=1.3)`:** Özellik normalizasyonu (MinMaxScaler) ve cihazları segmentlere ayırmak için (K-Means) kullanılmıştır.
+* **`streamlit (>=1.30)`:** Makine öğrenmesi modelinin interaktif, modern bir web arayüzüne (UI) dönüştürülmesi için.
+* **`plotly (>=5.18)`:** Veri setindeki cihazların dağılımlarının (Scatter) ve önerilen cihazların çok boyutlu analizlerinin (Radar Chart) interaktif olarak çizdirilmesi için.
+* **`joblib (>=1.3)`:** İleriki aşamalarda eğitilmiş modellerin yönetimi için dahil edilmiştir.
 
 ---
 
-## 🗄️ Veri Seti ve Veritabanı Bilgisi
+## 🗄️ Veri Seti ve Altyapı Bilgilendirmesi (Jüri Notu)
 
-Bu projede geleneksel bir ilişkisel veritabanı (SQL vb.) kullanılmamaktadır. Veriler statik bir veri kümesinden (CSV) okunarak işlenmektedir.
+Bu proje, akademik bir veri bilimi uygulaması olarak tasarlandığı için geleneksel web uygulamalarından farklı bir altyapı kullanır:
 
-* **Veri Seti Linki:** Projede kullanılan ve güncel donanım özelliklerini içeren sentetik veri setine doğrudan bu bağlantıdan ulaşabilirsiniz: [laptop_dataset_2025_2026.csv](./data/laptop_dataset_2025_2026.csv)
+* **Veri Seti (Örnek Veri):** İlişkisel bir SQL veritabanı yerine, sistem `data/laptop_dataset_2025_2026.csv` isimli statik veri kümesinden beslenmektedir. Projede kullanılan güncel donanım özelliklerini içeren veri setine doğrudan bu bağlantıdan ulaşabilirsiniz: [laptop_dataset_2025_2026.csv](./data/laptop_dataset_2025_2026.csv)
+* **Veritabanı Dosyası (Dump) & .env:** Sistem canlı veri çekmediği ve veritabanı kullanmadığı için `.env` (çevre değişkenleri) yapılandırmasına veya bir DB Dump dosyasına ihtiyaç duymaz.
+* **Eğitilmiş Model Dosyası:** K-Means makine öğrenmesi modeli, `app.py` tetiklendiğinde `ml_pipeline.py` üzerinden canlı (on-the-fly) olarak eğitilmekte ve anlık çalışmaktadır. Bu nedenle dizinde önceden kaydedilmiş bir `.pkl` (pickle) model dosyası bulunmamaktadır.
+* **Demo Kullanıcı Bilgileri:** Uygulama açık bir karar destek sistemi olduğundan üyelik (Login/Register) sistemi barındırmaz; bu nedenle demo kullanıcı bilgisi gerekmez.
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma Yönergeleri
+## 🚀 Kurulum ve Çalıştırma Yönergeleri (Çalıştırma Komutları)
 
-Projeyi kendi bilgisayarınızda (lokal ortamda) sorunsuz bir şekilde çalıştırmak için terminal üzerinden şu adımları izleyiniz:
+Projeyi bilgisayarınızda sorunsuz bir şekilde ayağa kaldırmak için terminal veya komut satırınızda (CMD/PowerShell) sırasıyla şu adımları izleyiniz:
 
 **1. Projeyi Bilgisayarınıza İndirin (Clone)**
 ```bash
@@ -71,12 +86,24 @@ git clone [https://github.com/azratashan/akilli-bilgisayar-oneri-sistemi.git](ht
 cd akilli-bilgisayar-oneri-sistemi
 ```
 
-**2. Gerekli Kütüphaneleri Yükleyin:**
+**2. Gerekli Kütüphaneleri Yükleyin**
 ```bash
 pip install -r requirements.txt
 ```
 
-**3. Arayüzü Başlatın:** 
+**3. Uygulamayı (Streamlit Arayüzünü) Başlatın**
 ```bash
 streamlit run app.py
 ```
+
+*(Komutu çalıştırdıktan sonra sistem varsayılan tarayıcınızda `http://localhost:8501` adresinde otomatik olarak açılacaktır.)*
+
+---
+
+## 👥 Ekip Üyeleri ve Görev Dağılımı
+
+| İsim Soyisim | Üstlenilen Sorumluluklar |
+| :--- | :--- |
+| **Azra Taşhan** | Sentetik veri setinin algoritmik üretimi, özellik mühendisliği (Feature Engineering), model doğrulama (Evaluation) testleri ve GitHub/Versiyon Kontrol yöneticiliği. |
+| **Kerem Bilgiç** | Makine öğrenmesi mimarisinin (K-Means) ve kural tabanlı Uzman Sistem (Expert System) algoritmalarının matematiksel modellenmesi, ML Pipeline entegrasyonu. |
+| **Ayşegül Karataş** | Streamlit altyapısı ile web arayüzünün (UI) kodlanması, Plotly veri görselleştirmeleri, hata yönetimi (Fallback mekanizmaları) ve kullanıcı deneyimi (UX). |

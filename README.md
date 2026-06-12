@@ -100,10 +100,12 @@ streamlit run app.py
 
 ---
 
-## 👥 Ekip Üyeleri ve Görev Dağılımı
+## 👥 Ekip Üyeleri, Görev Dağılımı ve Katkı Payı (%)
 
-| İsim Soyisim | Üstlenilen Sorumluluklar |
-| :--- | :--- |
-| **Azra Taşhan** | Sentetik veri setinin algoritmik üretimi, özellik mühendisliği (Feature Engineering), model doğrulama (Evaluation) testleri ve GitHub/Versiyon Kontrol yöneticiliği. |
-| **Kerem Bilgiç** | Makine öğrenmesi mimarisinin (K-Means) ve kural tabanlı Uzman Sistem (Expert System) algoritmalarının matematiksel modellenmesi, ML Pipeline entegrasyonu. |
-| **Ayşegül Karataş** | Streamlit altyapısı ile web arayüzünün (UI) kodlanması, Plotly veri görselleştirmeleri, hata yönetimi (Fallback mekanizmaları) ve kullanıcı deneyimi (UX). |
+Proje geliştirme sürecinde "Separation of Concerns" (Sorumlulukların Ayrılması) prensibine uyulmuş olup, takım üyelerinin sorumlu oldukları modüller, yazdıkları kodlar ve projedeki toplam katkı payları aşağıda detaylandırılmıştır:
+
+| İsim Soyisim | Sorumlu Olduğu Kod / Dosya | Görev Detayı | Katkı Payı |
+| :--- | :--- | :--- | :---: |
+| **Azra Taşhan** | `create_data.py`<br>`evaluation.py`<br>`README.md`<br>`data/` dizini | Sentetik veri setinin algoritmik üretimi ve model doğrulama testlerinin kodlanması. **Ayrıca:** Projenin GitHub üzerinde versiyon kontrolünün (PR/Merge süreçleri) yönetilmesi, modüller arası sistem entegrasyonu ve akademik dokümantasyonun hazırlanması. | **%40** |
+| **Kerem Bilgiç** | `ml_pipeline.py` | Makine öğrenmesi mimarisinin (K-Means) ve kural tabanlı Uzman Sistem (Expert System) algoritmalarının matematiksel modellenmesi, veri normalizasyonu ve ana öneri motorunun kodlanması. | **%30** |
+| **Ayşegül Karataş** | `app.py` | Projenin son kullanıcı arayüzünün Streamlit altyapısı ile kodlanması, Plotly ile interaktif veri görselleştirmelerinin (Radar Chart vb.) oluşturulması ve kullanıcı deneyimi (UX) süreçlerinin entegrasyonu. | **%30** |

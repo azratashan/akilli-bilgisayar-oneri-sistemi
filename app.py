@@ -548,6 +548,6 @@ with tab_data:
 st.markdown("---")
 st.markdown(
     "<p style='text-align:center;color:#555!important;font-size:0.82rem'>"
-    "ML Laptop Öneri Sistemi &bull; Scikit-Learn &amp; Streamlit &bull; 2025</p>",
+    "ML Laptop Öneri Sistemi &bull; Scikit-Learn &amp; Streamlit &bull; 2025-2026</p>",
     unsafe_allow_html=True,
 )

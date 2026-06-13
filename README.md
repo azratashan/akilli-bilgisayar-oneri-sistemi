@@ -4,7 +4,7 @@ Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği Bölümü, **Python Progra
 
 ## 🎥 Proje Demo Videosu
 Projenin lokal ortamda nasıl kurulduğunu, çalıştırıldığını ve arayüzün kullanımını gösteren kısa ekran kaydına buradan ulaşabilirsiniz: 
-👉 [YouTube Demo Videosu Linki Buraya Gelecek]
+👉 [(https://drive.google.com/file/d/1iuyrNenXgNbDYIk-xU2VymeY9fZrkVe0/view?usp=drive_link)]
 
 ---
 
